@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Contact</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="/index/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/index/css/style.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/admin/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/index/css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif"/>
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/index/css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+          media="screen">
+</head>
+<body>
+<!-- header section start -->
+<div class="header_section">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="logo" href="/"><img src="/index/images/logo.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/shop">Shop</a>
+                    </li>
+                    <li th:if="${user.getRoles().contains(ADMIN)}" class="nav-item">
+                        <a class="nav-link" href="/adminProduct">Admin Panel</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <div class="search_icon">
+                        <ul>
+                            <li><a href="/basket"><img src="/index/images/shop-icon.png"></a></li>
+                            <li><a href="/logout"><img src="/index/images/exit-icon.png"></a></li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>
+</div>
+<!-- header section end -->
+<!-- contact section start -->
+<div class="contact_section layout_padding">
+        <div class="row">
+            <div class="col-sm-auto bg-light sticky-top">
+                <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
+                    <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
+                        <li class="nav-item">
+                            <a href="/adminProduct" class="nav-link py-3 px-2 myFont" title="" data-bs-toggle="tooltip"
+                               data-bs-placement="right" data-bs-original-title="Home">
+                                Продукт
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/adminEmployee" class="nav-link py-3 px-2 myFont" title="" data-bs-toggle="tooltip"
+                               data-bs-placement="right" data-bs-original-title="Dashboard">
+                                Сотрудник
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/adminProvider" class="nav-link py-3 px-2 myFont" title="" data-bs-toggle="tooltip"
+                               data-bs-placement="right" data-bs-original-title="Orders">
+                                Поставщик
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/adminRaw" class="nav-link py-3 px-2 myFont" title="" data-bs-toggle="tooltip"
+                               data-bs-placement="right" data-bs-original-title="Products">
+                                Сырье
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/adminUser" class="nav-link py-3 px-2 myFont" title="" data-bs-toggle="tooltip"
+                               data-bs-placement="right" data-bs-original-title="Customers">
+                                Пользователи
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/adminDepartment" class="nav-link py-3 px-2 myFont" title="" data-bs-toggle="tooltip"
+                               data-bs-placement="right" data-bs-original-title="Customers">
+                                Заводы
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/adminOrder" class="nav-link py-3 px-2 myFont" title="" data-bs-toggle="tooltip"
+                               data-bs-placement="right" data-bs-original-title="Customers">
+                                Заказы
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm p-3 min-vh-100">
+                <table class="table myTable">
+                    <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col"><input id="name" placeholder="Название"></th>
+                        <th scope="col"><input id="characteristic" placeholder="Характеристика"></th>
+                        <th scope="col"><input id="type" placeholder="Тип"></th>
+                        <th scope="col"><input id="cost" placeholder="Цена"></th>
+                        <th scope="col"><input id="description" placeholder="Описание"></th>
+                        <th scope="col">
+                            <label class="btn btn-default imageChanger">
+                                <div class="btn btn-trans btn-icon fa fa-camera add-tooltip"
+                                     data-original-title="Add Photo" data-toggle="tooltip">
+                                </div>
+                                <input type="file" id="imageList" name="file" multiple accept="image/*" hidden>
+                            </label>
+                        </th>
+                        <th scope="col" style="display: flex;padding-top: 2rem">
+                            <button id="addButton" type="button" class="btn btn-secondary">Создать</button>
+                            <button id="changeButton" type="button" class="btn btn-secondary" style="display: none">Изменить</button>
+                        </th>
+                    </tr>
+                    </thead>
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Название товара</th>
+                        <th scope="col">Характеристики товара</th>
+                        <th scope="col">Тип товара</th>
+                        <th scope="col">Стоимость</th>
+                        <th scope="col">Основная информация о товаре</th>
+                        <th scope="col">Изображение</th>
+                    </tr>
+                    </thead>
+                    <tbody id="table">
+                    </tbody>
+                </table>
+            </div>
+
+            <script th:inline="javascript">
+                const products = [[${products}]];
+            </script>
+
+        <!--               <div class="row">-->
+        <!--                  <div class="col-md-5">-->
+        <!--                     <form th:object="${Warehouse}" th:action="@{/newWarehouse}" method="post" class="mail_section_1">-->
+        <!--                        <h1 class="contact_taital">Добавить склад</h1>-->
+        <!--                        <input type="text" class="mail_text" placeholder="Название склада" name="name">-->
+        <!--                        <input type="text" class="mail_text" placeholder="Адрес склада" name="address">-->
+        <!--                        <button type="submit" name="submit" style="margin-top: 15px; margin-left: 150px" class="send_bt">Добавить</button>-->
+        <!--                     </form>-->
+        <!--                  </div>-->
+
+        <!--                  <div style="margin-left: 60px" class="col-md-5">-->
+        <!--                     <form th:object="${Department}" th:action="@{/newDepartment}" method="post" class="mail_section_1">-->
+        <!--                        <h1 class="contact_taital">Добавить завод</h1>-->
+        <!--                        <input type="text" class="mail_text" placeholder="Адрес завода" name="address">-->
+        <!--                        <input type="text" class="mail_text" placeholder="Номер завода" name="telephoneNumber">-->
+        <!--                        <input type="text" class="mail_text" placeholder="Специальность завода" name="specialization">-->
+        <!--                        <input type="text" class="mail_text" placeholder="Сколько сотрудников добавить" name="employee">-->
+        <!--                        <input type="text" class="mail_text" placeholder="Виды сырья" name="newRaws">-->
+        <!--                        <button type="submit" name="submit" style="margin-top: 15px; margin-left: 150px" class="send_bt">Добавить</button>-->
+        <!--                     </form>-->
+        <!--                  </div>-->
+
+        <!--               </div>-->
+        <!--            </div>-->
+    </div>
+</div>
+
+<script src="/index/js/jquery.min.js"></script>
+<script src="/index/js/popper.min.js"></script>
+<script src="/index/js/bootstrap.bundle.min.js"></script>
+<script src="/index/js/jquery-3.0.0.min.js"></script>
+<script src="/index/js/plugin.js"></script>
+<script src="/admin/js/script.js"></script>
+<!-- sidebar -->
+<script src="/index/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/index/js/custom.js"></script>
+<!-- javascript -->
+
+<script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+</body>
+</html>
